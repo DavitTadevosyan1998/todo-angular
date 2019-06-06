@@ -22,7 +22,6 @@ import { trigger, transition, style, animate } from '@angular/animations';
   ]
 })
 export class TodoListComponent implements OnInit {
-  // todos : Todo[];
   beforeEditCache: string = '';
 
   toggle(todo : Todo){

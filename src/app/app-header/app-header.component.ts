@@ -17,7 +17,7 @@ export class AppHeaderComponent implements OnInit {
       return;
     }
     event.preventDefault();
-    this.todoService.createTodo(this.text,this.id)
+    this.todoService.createTodo(this.text,this.id);
     this.text = '';
     this.id++;
   }

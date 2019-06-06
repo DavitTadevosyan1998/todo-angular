@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Todo } from './shared/todo';
-import { todos } from './shared/data'
 
 @Injectable({
   providedIn: 'root'
 })
 export class NewServiceService {
-  todos: Todo[] = todos;
+  todos: any = JSON.parse(localStorage.getItem('AngularTodo'));
   filter: string = 'all';
-
+  
   getTodos(): Todo[] {
     return this.todos;
   };
@@ -16,12 +15,14 @@ export class NewServiceService {
   createTodo(text:string, id: number){
     let todo = new Todo(text,id);
     this.todos.push(todo);
+    localStorage.setItem('AngularTodo',JSON.stringify(this.todos));
   };
 
   deleteTodo(todo: Todo){
     let index = this.todos.indexOf(todo);
     if (index > -1) {
       this.todos.splice(index, 1);
+      localStorage.setItem('AngularTodo', JSON.stringify(this.todos));
     }
   };
 
@@ -50,5 +51,6 @@ export class NewServiceService {
 
   clearCompleted() {
     this.todos = this.todos.filter(todo => !todo.completed);
+    localStorage.setItem('AngularTodo', JSON.stringify(this.todos));
   }
 }
