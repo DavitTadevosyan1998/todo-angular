@@ -1,0 +1,7 @@
+<div class="text-center">
+  <input type="text" name="text" [(ngModel)]="text" (keyup.enter)="addText($event)" id="addText" placeholder="What needs to be done?" required>
+</div>
+
+<app-todo-list></app-todo-list>
+<app-todo-footer></app-todo-footer>
+

@@ -1,0 +1,15 @@
+<div *ngIf="todoService.todos.length" id="main">
+  <input id="toggle-all" (change)="allItems($event)" [checked]="anyRemaining" type="checkbox">
+  <ul id="todo-list">
+    <li *ngFor="let todo of todoService.todosFiltered" class="todoLi" id="todoLi" @fade>
+      <div class="view" *ngIf="!todo.editing; else editingTodo" (mouseover)="todo.hover = true" (mouseleave)="todo.hover = false">
+        <input class="toggle" [(ngModel)]="todo.completed" (click)="toggle(todo)"  type="checkbox">
+        <label  id="label" (dblclick)="editTodo(todo)" [class.comleted]="todo.completed" class="todoLabel">{{ todo.text }}</label>
+        <button *ngIf="todo.hover" (click)="removeTodos(todo)" class="destory">x</button>
+      </div>
+      <ng-template #editingTodo>
+        <input type="text" [(ngModel)]="todo.text" (blur)="doneEdit(todo)" (keyup.enter)="doneEdit(todo)" (keyup.esc)="cancelEdit(todo)" class="edit" autofocus>
+      </ng-template>
+    </li>
+  </ul>
+</div>

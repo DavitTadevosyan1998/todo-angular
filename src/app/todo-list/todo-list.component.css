@@ -1,0 +1,143 @@
+#main {
+    position: relative;
+    z-index: 2;
+    border-top: 1px solid #e6e6e6;
+}
+
+#toggle-all {
+    position: absolute;
+    top: -58px;
+    left: -6px;
+    width: 60px;
+    height: 34px;
+    text-align: center;
+    border: none;
+    transform: rotate(90deg);
+    -webkit-appearance: none;
+    outline: none;
+}
+
+#toggle-all:before {
+    content: "❯";
+    font-size: 22px;
+    color: #e6e6e6;
+    padding: 10px 27px 10px 27px;
+}
+
+#toggle-all.black:before {
+    color:#000000;
+}
+
+#toggle-all:checked:before {
+    color: #737373;
+}
+
+label{
+    display: none;
+}
+
+#todo-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#todo-list li {
+    position: relative;
+    border: none;
+    box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);
+    width: 100%;
+    height: 70px;
+    background-color: white;
+    font-size: 24px;
+    outline: none;
+}
+
+#todo-list li:last-child {
+    border-bottom: none;
+}
+
+#todo-list li .toggle {
+    text-align: center;
+    width: 40px;
+    line-height: 70px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: 10px 0px;
+    border: none;
+    -webkit-appearance: none;
+    outline: none;
+}
+
+#todo-list li .toggle:after {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="%23ededed" stroke-width="3"/></svg>');
+}
+
+#todo-list li .toggle:checked:after {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="%23bddad5" stroke-width="3"/><path fill="%235dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
+}
+
+#todo-list li label {
+    white-space: pre-line;
+    word-break: break-all;
+    padding: 15px 60px 15px 15px;
+    margin-left: 45px;
+    display: block;
+    line-height: 35px;
+    transition: color 0.4s;
+}
+
+.comleted{
+    text-decoration: line-through;
+    color:#e6e6e6;
+}
+
+#todo-list li button .destroy {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    bottom: 0;
+    width: 40px;
+    height: 40px;
+    margin: auto 0;
+    font-size: 30px;
+    color: #cc9a9a;
+    margin-bottom: 11px;
+    transition: color 0.2s ease-out;
+}
+
+
+button.destory {
+    outline: none;
+    border: none;
+    background: none;
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    height: 70px;
+    margin: auto 0px;
+    font-size: 30px;
+    color: #cc9a9a;
+    transition: color 0.2s ease-out;
+}
+
+button.destory:hover{
+    color: #af5b5e;
+}
+
+.edit {
+    position: relative;
+    top: 0;
+    left: 55px;
+    width: 90%;
+    font-size: 24px;
+    outline: none;
+    color: inherit;
+    padding: 15px 60px 15px 15px;
+    border: 1px solid #999;
+    box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+}

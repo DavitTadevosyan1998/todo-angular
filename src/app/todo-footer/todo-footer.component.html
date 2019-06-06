@@ -1,0 +1,17 @@
+<footer *ngIf="todoService.todos.length" class="footer">
+  <span id="todoCount">{{ remaining }} items left</span>
+  <ul *ngFor="let todo of todos" class="filters">
+    <li>
+      <button [class.active]="todoService.filter == 'all'"  (click)="todoService.filter = 'all'">All</button>
+    </li>
+    <li>
+      <button [class.active]="todoService.filter == 'active'" (click)="todoService.filter = 'active'">Active</button>
+    </li>
+    <li>
+      <button [class.active]="todoService.filter == 'completed'" (click)="todoService.filter = 'completed'">Completed</button>
+    </li>
+  </ul>
+  <div *ngIf="todoService.atLeastOneCompleted()" >
+    <button (click)="todoService.clearCompleted()" id="clear-completed">Clear-comleted</button>
+  </div>
+</footer>
