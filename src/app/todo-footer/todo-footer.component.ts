@@ -11,7 +11,7 @@ export class TodoFooterComponent implements OnInit {
   todos: Todo[];
 
   get remaining() : number {
-    return this.todos.filter(todo => !todo.completed).length
+    return this.todoService.remaining()
   };
 
   // atLeastOneCompleted() : boolean {

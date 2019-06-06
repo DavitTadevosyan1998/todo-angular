@@ -22,7 +22,7 @@ import { trigger, transition, style, animate } from '@angular/animations';
   ]
 })
 export class TodoListComponent implements OnInit {
-  todos : Todo[];
+  // todos : Todo[];
   beforeEditCache: string = '';
 
   toggle(todo : Todo){
@@ -30,7 +30,7 @@ export class TodoListComponent implements OnInit {
   };
 
   allItems(event) {
-    this.todos.forEach((todo) => todo.completed = event.target.checked)
+    this.todoService.todos.forEach((todo) => todo.completed = (<HTMLInputElement>event.target).checked);
   };
 
   removeTodos(todo: Todo) {
@@ -55,17 +55,16 @@ export class TodoListComponent implements OnInit {
   }
 
   get anyRemaining() {
-    let remaining = this.todos.filter(todo => !todo.completed).length;
-    return remaining == 0;
+    return this.todoService.remaining() == 0;
   };
 
   constructor(public todoService: NewServiceService ) { 
-    this.todos = []
+    this.todoService = todoService
   }
 
   ngOnInit() {
     this.beforeEditCache = '';
-    this.todos = this.todoService.getTodos();
+    this.todoService.getTodos();
   }
 
 }
